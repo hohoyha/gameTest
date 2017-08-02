@@ -8,6 +8,7 @@ var app = require('../app');
 var debug = require('debug')('gametest:server');
 var http = require('http');
 
+// const Server = require('socket.io');
 /**
  * Get port from environment and store in Express.
  */
@@ -19,8 +20,11 @@ app.set('port', port);
  * Create HTTP server.
  */
 
+//  const io = Server(port);
+
 var server = http.createServer(app);
 
+// io.close();
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -28,6 +32,8 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+var io = require('socket.io').listen(server);
 
 /**
  * Normalize a port into a number, string, or false.

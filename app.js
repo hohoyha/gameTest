@@ -20,8 +20,15 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser('@#@$MYSIGN#@$#$'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+var sess = require('express-session');
+app.use(sess({
+ secret: '@#@$MYSIGN#@$#$',
+ resave: false,
+ saveUninitialized: true
+}));
 
 app.use('/', index);
 app.use('/users', users);

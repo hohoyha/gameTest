@@ -1,0 +1,27 @@
+
+
+
+
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="https://www.googleapis.com/oauth2/v4/token" method="post" enctype ="application/x-www-form-urlencoded">
+     client_id: <input type="text" name="client_id" value= "44381163963-3liruvfmhecar5egvsg1ggcvfecmrfkn.apps.googleusercontent.com"><br/>
+     client_secret: <input type="text" name="client_secret" value = "gAN1kfULSb2zYSsXayKlFSlw"><br/>
+     refresh_token: <input type="text" name="refresh_token" value = "<%= refresh %>"><br/>
+     grant_type:<input type="text" name="grant_type" value="refresh_token"><br/>
+     <input type="submit">
+    </form>
+   
+  </body>
+</html>
+
+
+// client_id=<your_client_id>&
+// client_secret=<your_client_secret>&
+// refresh_token=<refresh_token>&
+// grant_type=refresh_token

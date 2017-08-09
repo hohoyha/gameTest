@@ -11,6 +11,10 @@ router.get('/auth', function(req, res){
     res.render('oauth', {title:'auth', code: req.query.code});
 });
 
+router.get('/refresh', function(req, res){
+    res.render('refreshToken', {title:'refresh', refresh:req.query.refresh });
+});
+
 router.get('/count', function(req, res){
   
   if( req.cookies.count)
